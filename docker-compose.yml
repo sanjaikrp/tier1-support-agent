@@ -1,0 +1,29 @@
+# docker-compose.yml
+# Defines the PostgreSQL database service for the project.
+# On first startup, PostgreSQL automatically runs any .sql files mounted
+# into /docker-entrypoint-initdb.d/ in alphabetical order:
+#   01_schema.sql  -> creates the tickets table
+#   02_seed.sql    -> loads 100 synthetic tickets
+
+services:
+  db:
+    image: postgres:15
+    container_name: tier1_postgres
+    environment:
+      POSTGRES_DB: tier1_tickets
+      POSTGRES_USER: tier1_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/02_seed.sql
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tier1_user -d tier1_tickets"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
