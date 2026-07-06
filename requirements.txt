@@ -1,0 +1,30 @@
+# Web framework
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
+# Data validation
+pydantic==2.10.4
+
+# LangChain + Anthropic
+langchain==0.3.14
+langchain-anthropic==0.3.1
+langchain-core==0.3.29
+
+# Database
+psycopg2-binary==2.9.10
+
+# HTTP client (for GitHub API and benchmarking)
+requests==2.32.3
+httpx==0.28.1
+
+# Environment variables
+python-dotenv==1.0.1
+
+# Testing
+pytest==8.3.4
+pytest-asyncio==0.25.1
+
+# Data analysis (for evaluation phase)
+pandas==2.2.3
+scipy==1.15.0
+matplotlib==3.10.0
