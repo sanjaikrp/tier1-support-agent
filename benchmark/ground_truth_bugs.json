@@ -1,0 +1,157 @@
+{
+  "manifest_version": "1.0",
+  "description": "Ground-truth manifest of deliberately injected bugs in the support_demo package. Used to score diagnostic accuracy of the automated technical-support system (COMP5200M MSc dissertation). Each bug maps to a related ticket category and a specific file/function.",
+  "total_bugs": 15,
+  "bugs": [
+    {
+      "bug_id": "BUG-01",
+      "category": "bug",
+      "file_path": "support_demo/auth/views.py",
+      "function": "login",
+      "title": "Login crashes on empty password",
+      "bug_description": "check_password_hash is called without first validating that the submitted password is non-empty, causing a NoneType/TypeError on empty input.",
+      "root_cause_keywords": ["empty password", "check_password_hash", "validation", "nonetype", "login"],
+      "correct_fix": "Add a guard that returns a 400 validation response when password is empty before calling check_password_hash."
+    },
+    {
+      "bug_id": "BUG-02",
+      "category": "bug",
+      "file_path": "support_demo/pagination.py",
+      "function": "page_count",
+      "title": "Off-by-one error in page count",
+      "bug_description": "Floor division undercounts pages by one when total_items is not an exact multiple of per_page.",
+      "root_cause_keywords": ["off-by-one", "pagination", "floor division", "page count", "ceiling"],
+      "correct_fix": "Use ceiling division: (total_items + per_page - 1) // per_page."
+    },
+    {
+      "bug_id": "BUG-03",
+      "category": "bug",
+      "file_path": "support_demo/helpers.py",
+      "function": "make_json_response",
+      "title": "JSON response missing Content-Type header",
+      "bug_description": "The response omits the Content-Type: application/json header, so clients may misparse the body.",
+      "root_cause_keywords": ["content-type", "json", "header", "mimetype", "response"],
+      "correct_fix": "Set the Content-Type header to application/json on the response."
+    },
+    {
+      "bug_id": "BUG-04",
+      "category": "bug",
+      "file_path": "support_demo/uploads.py",
+      "function": "save_upload",
+      "title": "Unicode filenames cause upload failure",
+      "bug_description": "The filename is encoded as ASCII, raising UnicodeEncodeError for non-ASCII filenames.",
+      "root_cause_keywords": ["unicode", "filename", "ascii", "utf-8", "encoding", "upload"],
+      "correct_fix": "Encode the filename as UTF-8 (or use a safe filename helper) instead of ASCII."
+    },
+    {
+      "bug_id": "BUG-05",
+      "category": "bug",
+      "file_path": "support_demo/models/product.py",
+      "function": "average_rating",
+      "title": "Division by zero in average rating",
+      "bug_description": "No guard against a zero rating_count, causing ZeroDivisionError for unrated products.",
+      "root_cause_keywords": ["division by zero", "zerodivisionerror", "average", "rating", "guard"],
+      "correct_fix": "Return 0.0 when rating_count is zero before dividing."
+    },
+    {
+      "bug_id": "BUG-06",
+      "category": "bug",
+      "file_path": "support_demo/export.py",
+      "function": "format_export_date",
+      "title": "Incorrect date format in CSV export",
+      "bug_description": "Dates are formatted as US MM/DD/YYYY instead of ISO YYYY-MM-DD, breaking downstream imports.",
+      "root_cause_keywords": ["date format", "iso", "csv", "strftime", "export"],
+      "correct_fix": "Format dates with strftime('%Y-%m-%d')."
+    },
+    {
+      "bug_id": "BUG-07",
+      "category": "bug",
+      "file_path": "support_demo/cache.py",
+      "function": "ThumbnailCache.put",
+      "title": "Memory leak in thumbnail cache",
+      "bug_description": "The cache has no size limit or eviction policy, so it grows without bound.",
+      "root_cause_keywords": ["memory leak", "cache", "eviction", "unbounded", "lru"],
+      "correct_fix": "Introduce a maximum size with an eviction policy (e.g. an LRU cache)."
+    },
+    {
+      "bug_id": "BUG-08",
+      "category": "bug",
+      "file_path": "support_demo/views/contact.py",
+      "function": "submit_contact_form",
+      "title": "Broken redirect after form submission",
+      "bug_description": "Redirects to a non-existent endpoint name, producing a 404.",
+      "root_cause_keywords": ["redirect", "url_for", "endpoint", "404", "contact"],
+      "correct_fix": "Reference the correct endpoint name 'contact_confirm'."
+    },
+    {
+      "bug_id": "BUG-09",
+      "category": "bug",
+      "file_path": "support_demo/models/stats.py",
+      "function": "increment_view_counter",
+      "title": "Race condition in counter increment",
+      "bug_description": "A non-atomic read-modify-write loses updates under concurrency.",
+      "root_cause_keywords": ["race condition", "atomic", "counter", "concurrency", "increment"],
+      "correct_fix": "Use an atomic SQL UPDATE ... SET count = count + 1."
+    },
+    {
+      "bug_id": "BUG-10",
+      "category": "bug",
+      "file_path": "support_demo/mailer.py",
+      "function": "send_with_retry",
+      "title": "Duplicate emails sent on retry",
+      "bug_description": "Retries without an idempotency check, so a slow-but-successful send is re-sent, producing duplicates.",
+      "root_cause_keywords": ["duplicate", "email", "retry", "idempotency", "mailer"],
+      "correct_fix": "Track a delivery/idempotency key and do not resend a delivered message."
+    },
+    {
+      "bug_id": "BUG-11",
+      "category": "bug",
+      "file_path": "support_demo/billing.py",
+      "function": "invoice_total",
+      "title": "Float rounding error in invoice totals",
+      "bug_description": "Monetary values are accumulated as floats without rounding, producing precision errors.",
+      "root_cause_keywords": ["float", "rounding", "invoice", "total", "decimal", "precision"],
+      "correct_fix": "Use Decimal for money or round to two decimal places."
+    },
+    {
+      "bug_id": "BUG-12",
+      "category": "bug",
+      "file_path": "support_demo/validators.py",
+      "function": "is_feature_enabled",
+      "title": "Boolean flag inverted in feature toggle",
+      "bug_description": "An erroneous negation inverts the feature flag, enabling disabled features and vice versa.",
+      "root_cause_keywords": ["boolean", "inverted", "feature flag", "toggle", "negation"],
+      "correct_fix": "Remove the erroneous 'not'; return the flag value directly."
+    },
+    {
+      "bug_id": "BUG-13",
+      "category": "bug",
+      "file_path": "support_demo/reports.py",
+      "function": "first_and_last",
+      "title": "List index out of range in report builder",
+      "bug_description": "Accesses rows[0] and rows[-1] without checking for an empty list, raising IndexError.",
+      "root_cause_keywords": ["index out of range", "indexerror", "empty list", "report", "guard"],
+      "correct_fix": "Return (None, None) when the input list is empty."
+    },
+    {
+      "bug_id": "BUG-14",
+      "category": "bug",
+      "file_path": "support_demo/retry.py",
+      "function": "retry_operation",
+      "title": "Infinite loop in retry backoff",
+      "bug_description": "The attempt counter is never incremented, so a persistently failing operation loops forever.",
+      "root_cause_keywords": ["infinite loop", "retry", "counter", "increment", "backoff"],
+      "correct_fix": "Increment the attempts counter inside the loop body."
+    },
+    {
+      "bug_id": "BUG-15",
+      "category": "bug",
+      "file_path": "support_demo/security.py",
+      "function": "build_redirect",
+      "title": "Header injection via unvalidated redirect",
+      "bug_description": "target_url is used in the Location header without validation, allowing open-redirect and header injection.",
+      "root_cause_keywords": ["header injection", "redirect", "validation", "open redirect", "location"],
+      "correct_fix": "Validate target_url against an allowlist and reject external/control characters."
+    }
+  ]
+}
