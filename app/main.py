@@ -2,16 +2,17 @@
 app/main.py
 
 The FastAPI application entry point. Exposes:
-  - GET  /api/v1/health         : server health check
-  - POST /api/v1/classify       : run the Router Agent on a ticket
-
-More endpoints (full pipeline, baseline) are added in later phases.
+  - GET  /api/v1/health          : server health check
+  - POST /api/v1/classify        : Router Agent only (single-stage demo)
+  - POST /api/v1/resolve         : full multi-agent pipeline
 """
 
 from fastapi import FastAPI, HTTPException
+
 from app.config import ANTHROPIC_MODEL
-from app.schemas.models import TicketInput, RouterOutput
+from app.schemas.models import TicketInput, RouterOutput, ResolutionResponse
 from app.agents.router_agent import run_router
+from app.pipeline.orchestrator import run_multi_agent_pipeline
 
 app = FastAPI(
     title="Tier 1 Support Automation API",
@@ -28,13 +29,18 @@ async def health_check():
 
 @app.post("/api/v1/classify", response_model=RouterOutput)
 async def classify_ticket(ticket: TicketInput) -> RouterOutput:
-    """
-    Run the Router Agent on a single ticket and return its classification.
-    This demonstrates the first stage of the multi-agent pipeline.
-    """
+    """Run only the Router Agent on a ticket (single-stage demonstration)."""
     try:
         latencies = {}
-        result = await run_router(ticket, latencies)
-        return result
+        return await run_router(ticket, latencies)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/v1/resolve", response_model=ResolutionResponse)
+async def resolve_ticket(ticket: TicketInput) -> ResolutionResponse:
+    """Run a ticket through the full multi-agent pipeline and return the resolution."""
+    try:
+        return await run_multi_agent_pipeline(ticket)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
