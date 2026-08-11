@@ -1,0 +1,2402 @@
+[
+  {
+    "query_id": "BUGQ-13",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies the file (support_demo/validators.py), the root cause (inverted boolean logic with 'not' operator), and the symptom (feature flags behaving opposite to their setting). All specific claims align with ground truth keywords and expected bug category."
+  },
+  {
+    "query_id": "BUGQ-13",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies boolean logic inversion as root cause and recommends reviewing settings handler code. All specific technical claims (negation operators, boolean state variables, testing approach) are consistent with ground truth keywords and bug category."
+  },
+  {
+    "query_id": "BUGQ-08",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies memory leak in cache.py with unbounded dictionary and recommends LRU cache with eviction policy. All specific technical claims align with ground truth keywords (memory leak, cache, eviction, unbounded, lru). No contradictions detected."
+  },
+  {
+    "query_id": "BUGQ-08",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies memory leak in cache subsystem with unbounded growth and recommends LRU eviction policy. All specific technical claims align with ground truth keywords and expected bug category."
+  },
+  {
+    "query_id": "ACCQ-03",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies password reset email delivery as the issue. While it proposes SMTP configuration as a specific cause without evidence, this is reasonable technical troubleshooting rather than a false claim contradicting ground truth. No specific technical details (file paths, function "
+  },
+  {
+    "query_id": "ACCQ-03",
+    "system": "baseline",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general diagnostic guidance for password reset email failures without asserting specific unverifiable claims. All suggestions (checking email provider dashboards, verifying DNS records, reviewing logs, testing) are standard troubleshooting practices consistent with the ground truth"
+  },
+  {
+    "query_id": "BUGQ-09",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 10' as a past resolved issue, but no evidence supports this ticket's existence. This is a specific, unverifiable claim not in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "BUGQ-09",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for 404 redirect issues without making specific unverifiable claims. The advice aligns with ground truth (redirect/url_for/404 issues in contact form). No fabricated file paths, function names, or specific details contradict the evidence or ground t"
+  },
+  {
+    "query_id": "CFGQ-07",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies session timeout configuration as root cause, matching ground truth keywords (session, timeout, configuration). No specific false claims about file paths, function names, or past tickets that contradict evidence or ground truth."
+  },
+  {
+    "query_id": "CFGQ-07",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies session timeout configuration as root cause, matching ground truth category and keywords. No specific unverifiable claims (file paths, function names, etc.) are made. General troubleshooting advice is sound and consistent with the verified issue."
+  },
+  {
+    "query_id": "ACCQ-08",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'previously resolved issue (ticket 83)' as a similar past case, but EVIDENCE is 'none' and GROUND_TRUTH shows 'maps_to_bug': null, indicating no actual related ticket exists. This is a fabricated reference."
+  },
+  {
+    "query_id": "ACCQ-08",
+    "system": "baseline",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for group permission inheritance issues without making specific technical claims (file paths, function names, etc.) that contradict ground truth. Recommendations align with root cause keywords."
+  },
+  {
+    "query_id": "CFGQ-06",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past ticket 46' as evidence of a similar issue, but no evidence was provided and this specific ticket reference cannot be verified. This is a fabricated citation used to support the recommendation."
+  },
+  {
+    "query_id": "CFGQ-06",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies logging verbosity as root cause and recommends checking logging config files and adjusting log levels. All specific technical claims (log4j.properties, logback.xml, DEBUG/TRACE levels, log rotation) are standard, well-established practices consistent with ground truth k"
+  },
+  {
+    "query_id": "BUGQ-05",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies date format issue in support_demo/export.py and recommends ISO 8601 format. All specific claims align with ground truth keywords (date format, iso, export, strftime context implied). No contradictions detected."
+  },
+  {
+    "query_id": "BUGQ-05",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies date format/ISO 8601 issue as root cause, matches ground truth keywords (date format, iso, strftime, export). Provides accurate technical guidance without inventing specific file paths, function names, or unverifiable claims."
+  },
+  {
+    "query_id": "BUGQ-03",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies ASCII vs UTF-8 encoding as root cause, mentions the correct file path (support_demo/uploads.py), and addresses unicode/filename handling. All specific technical claims align with ground truth keywords and bug category."
+  },
+  {
+    "query_id": "BUGQ-03",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies Unicode/UTF-8 encoding issue in file uploads with appropriate technical recommendations. All specific claims (UTF-8 handling, database collation, filename validation) align with ground truth root cause keywords and bug category."
+  },
+  {
+    "query_id": "BUGQ-10",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response cites 'past ticket 8' as evidence for a similar fix, but no such ticket exists in the provided evidence (which is empty). This is a specific, unverifiable claim presented as fact."
+  },
+  {
+    "query_id": "BUGQ-10",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies race condition/concurrency issue with atomic counter increments. All technical claims (atomic operations, INCR, AtomicInteger, read-modify-write problem) are standard, verifiable practices consistent with ground truth root cause keywords."
+  },
+  {
+    "query_id": "CFGQ-11",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 47' as a past similar case, but no evidence supports this ticket's existence. This is a specific, unverifiable claim not in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "CFGQ-11",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies timezone configuration as root cause, matching ground truth keywords (timezone, offset, configuration, environment). All technical claims are general best practices without inventing specific file paths, function names, or unverifiable details. Diagnostic steps are stan"
+  },
+  {
+    "query_id": "CFGQ-12",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies upload size configuration as root cause, matching ground truth keywords. No specific false claims about file paths, function names, or past tickets. General guidance is appropriate given no evidence provided."
+  },
+  {
+    "query_id": "CFGQ-12",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for file upload size limit issues without inventing specific file paths, function names, or unverifiable technical details. All claims align with ground truth category (config) and root cause keywords (upload size, limits, configuration)."
+  },
+  {
+    "query_id": "ACCQ-04",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies whitespace in API keys as a common cause and recommends verification steps. All specific technical claims align with ground truth keywords (api key, whitespace, validation, access). No invented details or unsupported specifics detected."
+  },
+  {
+    "query_id": "ACCQ-04",
+    "system": "baseline",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for API key authorization issues. All specific claims (whitespace causing rejection, checking key expiration, verifying scopes, NTP sync for time-based validation) are standard API troubleshooting practices consistent with ground truth keywords. No "
+  },
+  {
+    "query_id": "ACCQ-02",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 77' as a previously resolved similar case, but no evidence supports this ticket's existence. This is a specific, unverifiable claim not found in provided evidence or ground truth."
+  },
+  {
+    "query_id": "ACCQ-02",
+    "system": "baseline",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies account activation/inactive status as root cause. All specific technical claims (activation flag, workflow check, admin panel activation) are reasonable troubleshooting steps consistent with ground truth keywords. No invented specifics contradicted by evidence or ground"
+  },
+  {
+    "query_id": "BUGQ-04",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 6' as a past similar issue, but no evidence supports this specific ticket reference. This is an unverifiable specific claim not in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "BUGQ-04",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies division by zero in average score calculation as root cause. Recommended fixes (null checks, safe defaults, UI handling) align with ground truth keywords. No specific false claims detected."
+  },
+  {
+    "query_id": "CFGQ-01",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies the issue as a configuration problem involving a missing secret key environment variable. All specific technical claims align with ground truth keywords: secret key, environment variable, missing, startup, and configuration. No fabricated details or unsupported claims d"
+  },
+  {
+    "query_id": "CFGQ-01",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for missing secret key issues without inventing specific file paths, function names, or unverifiable technical details. All claims align with ground truth keywords: secret key, environment variable, missing, startup, configuration."
+  },
+  {
+    "query_id": "BUGQ-12",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies float precision issues in invoice_total() function in support_demo/billing.py and recommends Decimal type. All specific technical claims align with ground truth keywords (float, rounding, invoice, total, decimal, precision). No contradictions detected."
+  },
+  {
+    "query_id": "BUGQ-12",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies floating-point arithmetic as root cause of invoice rounding discrepancies and recommends decimal types/fixed-point arithmetic. All specific technical claims align with ground truth keywords (float, rounding, invoice, total, decimal, precision). No fabricated details det"
+  },
+  {
+    "query_id": "BUGQ-07",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.92,
+    "judge_reason": "Response correctly identifies Content-Type/mimetype header issue and suggests setting mimetype='application/json' in response constructor, which aligns with ground truth keywords (content-type, json, header, mimetype, response). No specific false claims detected."
+  },
+  {
+    "query_id": "BUGQ-07",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies Content-Type header issues as root cause, matching ground truth keywords (content-type, json, header, response). No specific false claims about file paths, functions, or commits. General troubleshooting advice is sound."
+  },
+  {
+    "query_id": "CFGQ-04",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies CORS configuration as root cause and provides appropriate troubleshooting steps. All specific claims align with ground truth keywords (cors, origin, cross-origin, allowed, configuration). No invented file paths, functions, or unverifiable specifics detected."
+  },
+  {
+    "query_id": "CFGQ-04",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies CORS as root cause and provides accurate, framework-agnostic guidance on configuring CORS headers and handling preflight requests. All specific technical claims (header names, middleware names, annotations) are standard and verifiable. No contradictions with ground trut"
+  },
+  {
+    "query_id": "ACCQ-05",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies missing authorization checks on write endpoints and recommends role-based permission validation. All specific technical claims align with ground truth keywords: read-only status, authorization, permissions, and write operations. No fabricated details detected."
+  },
+  {
+    "query_id": "ACCQ-05",
+    "system": "baseline",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general technical guidance on privilege escalation and authorization issues without inventing specific file paths, function names, or unverifiable claims. All recommendations align with root cause keywords (authorization, permission, write, privilege, read-only) and the access cate"
+  },
+  {
+    "query_id": "BUGQ-15",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies open redirect and HTTP header injection vulnerabilities in build_redirect() function at support_demo/security.py. All specific technical claims (function name, file path, vulnerability types, validation approach) are consistent with ground truth keywords and bug categor"
+  },
+  {
+    "query_id": "BUGQ-15",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies Open Redirect vulnerability and recommends standard mitigation strategies (URL validation, allowlists, safe URL parsing). All technical claims align with ground truth keywords (open redirect, redirect, validation). No invented specifics or unsupported claims detected."
+  },
+  {
+    "query_id": "CFGQ-10",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past tickets 69 and 54' as resolved similar cases, but no evidence provided and ground_truth contains no ticket references, making these specific ticket numbers unverifiable hallucinations."
+  },
+  {
+    "query_id": "CFGQ-10",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general, correct technical reasoning about cache TTL configuration issues. All specific claims (cache_ttl parameter names, TTL values like 3600, restart procedures) are standard industry practices. No invented file paths, fabricated functions, or false specifics contradict the grou"
+  },
+  {
+    "query_id": "CFGQ-09",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response claims specific file path 'support_demo/validators.py' and function 'is_feature_enabled()' with inverted boolean bug, but ground truth shows file_path is empty and root cause involves rate limit configuration/threshold, not a code logic error."
+  },
+  {
+    "query_id": "CFGQ-09",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies rate limit configuration as root cause, matches ground truth keywords (rate limit, threshold, configuration, requests, blocked). No specific false claims about file paths, functions, or commits. General troubleshooting advice is sound and appropriately cautious about sp"
+  },
+  {
+    "query_id": "BUGQ-16",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response claims file path is 'auth/views.py' but ground truth specifies 'support_demo/auth/views.py'. The specific file path assertion contradicts the verified correct path."
+  },
+  {
+    "query_id": "BUGQ-16",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.92,
+    "judge_reason": "Response provides general, correct technical guidance on input validation and error handling without making specific unverifiable claims. The recommendations align with root cause (validation issue) and don't contradict ground truth about the bug location or nature."
+  },
+  {
+    "query_id": "ACCQ-09",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance consistent with ground truth keywords (deactivated, revoked, access). No specific technical claims (file paths, function names, ticket IDs) are made that contradict the verified information."
+  },
+  {
+    "query_id": "ACCQ-09",
+    "system": "baseline",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for deactivated account API access without inventing specific file paths, function names, or unverifiable claims. All suggested causes (token invalidation, caching, synchronization) align with root_cause_keywords and expected_category 'access'."
+  },
+  {
+    "query_id": "ACCQ-07",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response invents specific technical details (build_redirect() function in security.py, URL validation logic) not supported by evidence and contradicted by ground truth which provides no file path or function name."
+  },
+  {
+    "query_id": "ACCQ-07",
+    "system": "baseline",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general SSO troubleshooting guidance consistent with ground truth keywords (sso, authentication, loop, access). No specific unverifiable claims like file paths, function names, or fabricated references are made."
+  },
+  {
+    "query_id": "CFGQ-13",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response invents specific function 'build_redirect()' in 'security.py' that is not supported by evidence or ground truth. Ground truth only confirms config issue with allowed-hosts/base-url, not a specific vulnerable function."
+  },
+  {
+    "query_id": "CFGQ-13",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general diagnostic guidance aligned with ground truth keywords (allowed hosts, base url, domain, configuration, host). No specific unverifiable claims like invented file paths, function names, or ticket references. Reasoning is sound and consistent with config troubleshooting."
+  },
+  {
+    "query_id": "ACCQ-06",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response invents specific technical details (is_feature_enabled() function, validators.py file, 'not' operator fix) and references 'past ticket 81' - none supported by evidence or ground truth which provides no file paths or specific function names."
+  },
+  {
+    "query_id": "ACCQ-06",
+    "system": "baseline",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general, correct technical guidance on account lockout policies without asserting unverifiable specifics. No invented file paths, function names, or fabricated details. Recommendations align with standard security practices and ground truth keywords (lockout, login attempts, thresh"
+  },
+  {
+    "query_id": "CFGQ-03",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 43' as a similar past ticket with successful resolution, but no evidence was provided and this specific ticket reference cannot be verified against available data."
+  },
+  {
+    "query_id": "CFGQ-03",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general diagnostic guidance for static asset path mismatches in production, which aligns with ground truth keywords (static files, path, production, configuration, 404). No specific unverifiable claims like file paths, function names, or fabricated details are made."
+  },
+  {
+    "query_id": "BUGQ-11",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past tickets (tickets 14 and 22)' as evidence for similar resolutions, but no evidence was provided to verify these tickets exist or contain the claimed patterns. This is a specific, unverifiable claim not supported by available data."
+  },
+  {
+    "query_id": "BUGQ-11",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies idempotency/retry as root cause and recommends deduplication cache pattern. No specific false claims about file paths, function names, or non-existent tickets. General technical advice is sound and consistent with ground truth keywords."
+  },
+  {
+    "query_id": "BUGQ-02",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past ticket 2' as a reference, but no evidence supports this ticket exists. This is a specific, unverifiable claim not in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "BUGQ-02",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies pagination ceiling/rounding issue and provides accurate technical solutions. No specific claims contradict ground truth keywords (off-by-one, floor division, ceiling). General guidance is sound."
+  },
+  {
+    "query_id": "CFGQ-05",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 45' as a similar past incident, but no evidence supports this specific ticket reference. This is an invented citation not verifiable from provided sources."
+  },
+  {
+    "query_id": "CFGQ-05",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies debug mode/configuration as root cause and recommends disabling it in production. All specific technical claims (DEBUG=False, NODE_ENV=production, error logging, custom pages) are standard, well-established practices consistent with ground truth keywords. No fabricated "
+  },
+  {
+    "query_id": "ACCQ-10",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 24' as a past similar issue with specific details (faulty cache logic, edge-case handling fix), but EVIDENCE is 'none' and GROUND_TRUTH shows 'maps_to_bug': null, indicating no verified past ticket exists to support this claim."
+  },
+  {
+    "query_id": "ACCQ-10",
+    "system": "baseline",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general technical guidance on data isolation vulnerabilities without asserting specific unverifiable claims like file paths, function names, or commit hashes. All recommendations align with root cause keywords (tenant, isolation, data, access, authorization) and the access category"
+  },
+  {
+    "query_id": "CFGQ-14",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies worker/thread configuration as root cause with zero values disabling job execution. All specific technical claims (WORKER_COUNT, THREAD_POOL_SIZE, .env file, restart procedure) are reasonable standard practices consistent with ground truth keywords. No contradictions de"
+  },
+  {
+    "query_id": "CFGQ-14",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies worker thread configuration as root cause and provides appropriate diagnostic steps. All specific technical claims (worker_threads, thread_pool_size, restart procedures) are consistent with ground truth keywords and config category."
+  },
+  {
+    "query_id": "ACCQ-01",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance aligned with ground truth keywords (permission, role, admin, authorization). No specific technical claims (file paths, function names, etc.) are made that contradict the verified information."
+  },
+  {
+    "query_id": "ACCQ-01",
+    "system": "baseline",
+    "replication": 1,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance aligned with ground truth keywords (permission, role, forbidden, admin, authorization). No specific technical claims (file paths, function names, etc.) are made that contradict the verified correct answer."
+  },
+  {
+    "query_id": "BUGQ-06",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies IndexError from accessing empty list in first_and_last() function at support_demo/reports.py. All specific technical claims align with ground truth root cause keywords (IndexError, empty list, index out of range). Recommendations are appropriate and consistent."
+  },
+  {
+    "query_id": "BUGQ-06",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response claims root cause is missing null checks and empty dataset validation, but ground truth indicates actual cause is an IndexError/index out of range exception. Response's diagnosis contradicts the specific error type."
+  },
+  {
+    "query_id": "BUGQ-01",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response claims 'check_password_hash() raises a TypeError' but ground truth indicates 'nonetype' error. Also references 'past ticket' resolution with no evidence provided to support this claim."
+  },
+  {
+    "query_id": "BUGQ-01",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies empty password validation as root cause and recommends appropriate fixes (client-side required attribute, server-side validation, error handling). No specific technical claims contradict the ground truth about the bug category, file path, or root cause keywords."
+  },
+  {
+    "query_id": "BUGQ-14",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies infinite loop bug in retry.py with counter not incrementing. Specific claims about root cause and fix align with ground truth keywords (infinite loop, retry, counter, increment). No contradictions detected."
+  },
+  {
+    "query_id": "BUGQ-14",
+    "system": "baseline",
+    "replication": 1,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies infinite retry loop as root cause and recommends appropriate fixes (retry counter, exponential backoff, circuit breaker, timeout). All specific technical claims align with ground truth keywords and bug category."
+  },
+  {
+    "query_id": "CFGQ-08",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response invents a specific bug in retry.py with an infinite loop and missing 'attempts += 1' counter increment. Ground truth indicates root cause is SMTP/mail host configuration only, with no bug mapped (maps_to_bug: null). The retry.py bug claim is unsupported fabrication."
+  },
+  {
+    "query_id": "CFGQ-08",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies network connectivity and configuration as root causes, aligning with ground truth keywords (smtp, mail, host, unreachable, configuration). No specific false claims detected."
+  },
+  {
+    "query_id": "CFGQ-02",
+    "system": "multi_agent",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response claims root cause is a retry logic bug in support_demo/retry.py with an unincremented attempts counter. Ground truth indicates root cause is database configuration (host/port), not retry logic. Specific file path and bug description are unsupported hallucinations."
+  },
+  {
+    "query_id": "CFGQ-02",
+    "system": "baseline",
+    "replication": 1,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general diagnostic guidance for connection refused errors without inventing specific file paths, commands, or technical claims. All suggestions align with standard troubleshooting for database connectivity issues and are consistent with the ground truth category of 'config' and roo"
+  },
+  {
+    "query_id": "ACCQ-10",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites specific file paths (support_demo/cache.py, support_demo/auth/views.py, support_demo/security.py) and references a 'similar issue previously resolved' without evidence supporting these claims. Ground truth provides no file paths or prior bug references."
+  },
+  {
+    "query_id": "ACCQ-10",
+    "system": "baseline",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general technical reasoning about multi-tenant data isolation issues without asserting unverifiable specifics. All suggested causes (tenant validation, race conditions, missing filters, client-side state) are plausible and consistent with ground truth keywords (tenant, isolation, d"
+  },
+  {
+    "query_id": "CFGQ-05",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies DEBUG flag in production as root cause and recommends setting DEBUG=False. All specific technical claims (DEBUG flag exposure, stack traces, environment variable configuration) align with ground truth keywords and expected config category. No fabricated details detected"
+  },
+  {
+    "query_id": "CFGQ-05",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general, correct technical guidance about stack trace exposure and debug mode in production. All specific claims (debug flags, error handling middleware, generic error pages, server-side logging) are standard security practices consistent with ground truth keywords. No invented spe"
+  },
+  {
+    "query_id": "BUGQ-03",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies ASCII vs UTF-8 encoding issue in uploads.py with filename handling. All specific technical claims align with ground truth keywords (unicode, filename, ascii, utf-8, encoding, upload). No invented functions or false references detected."
+  },
+  {
+    "query_id": "BUGQ-03",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies encoding/unicode issue with filenames as root cause. All specific technical claims (UTF-8 vs ASCII mismatch, database encoding config, validation stripping non-ASCII chars) align with ground truth keywords and bug category. No invented specifics contradicted."
+  },
+  {
+    "query_id": "ACCQ-06",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response invents specific technical details: a non-existent 'is_feature_enabled()' function in 'validators.py' with fabricated inverted boolean logic. Ground truth provides no file path or specific function names, only general lockout/threshold keywords. The specific code location and function are u"
+  },
+  {
+    "query_id": "ACCQ-06",
+    "system": "baseline",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general best-practice recommendations for account lockout policies without inventing specific file paths, function names, or unverifiable technical details. Claims align with ground truth keywords (lockout, login attempts, threshold, account, access) and standard security practices"
+  },
+  {
+    "query_id": "ACCQ-05",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies missing authorization checks on write endpoints and recommends role-based permission validation. All specific technical claims align with ground truth keywords: read-only status, authorization, permissions, and write operations. No fabricated details detected."
+  },
+  {
+    "query_id": "ACCQ-05",
+    "system": "baseline",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general technical reasoning about privilege escalation and authorization vulnerabilities without asserting unverifiable specifics like file paths, function names, or fabricated details. All claims align with ground truth keywords (read-only, authorization, privilege, permission, wr"
+  },
+  {
+    "query_id": "BUGQ-05",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies date format issue in support_demo/export.py and recommends ISO 8601 format. All specific claims align with ground truth keywords (date format, iso, export, strftime context implied)."
+  },
+  {
+    "query_id": "BUGQ-05",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies date format and ISO 8601 as root cause, matching ground truth keywords. No specific false claims about file paths, functions, or commits. General troubleshooting advice is sound."
+  },
+  {
+    "query_id": "CFGQ-09",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response claims root cause is inverted boolean in is_feature_enabled() function in validators.py, but ground truth indicates issue is configuration-related (threshold/config), not a code logic bug with boolean inversion."
+  },
+  {
+    "query_id": "CFGQ-09",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies rate limit configuration as root cause, matches ground truth keywords (rate limit, threshold, configuration, requests, blocked). No specific false claims about file paths, functions, or commits. General troubleshooting advice is sound and appropriately cautious about sp"
+  },
+  {
+    "query_id": "CFGQ-07",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies session timeout configuration as root cause, matching ground truth keywords. No specific false claims about file paths, function names, or past tickets that contradict evidence or ground truth."
+  },
+  {
+    "query_id": "CFGQ-07",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies session timeout configuration as root cause, matching ground truth keywords (session, timeout, configuration, short). No specific unverifiable claims made; general troubleshooting guidance is sound and consistent with expected category."
+  },
+  {
+    "query_id": "ACCQ-01",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance aligned with ground truth keywords (permission, role, admin, authorization). No specific technical claims (file paths, function names, commit hashes, etc.) are made that contradict the verified correct answer."
+  },
+  {
+    "query_id": "ACCQ-01",
+    "system": "baseline",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance aligned with ground truth (permission/role/authorization/forbidden keywords). No specific technical claims (file paths, function names, etc.) are made that contradict the verified correct answer."
+  },
+  {
+    "query_id": "BUGQ-15",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past security fixes (ticket 26)' as evidence for similar patterns, but no such ticket exists in the provided evidence. This is a specific, unverifiable claim presented as factual support."
+  },
+  {
+    "query_id": "BUGQ-15",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies open redirect/unvalidated redirect vulnerability (CWE-601) and provides appropriate remediation steps. All technical claims align with ground truth keywords (redirect, validation, open redirect, location). No specific false claims detected."
+  },
+  {
+    "query_id": "BUGQ-13",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies the file (support_demo/validators.py), describes an inverted boolean logic issue with feature flags, and mentions the erroneous 'not' operator. All specific claims align with ground truth keywords (boolean, inverted, feature flag, negation). No contradictions detected."
+  },
+  {
+    "query_id": "BUGQ-13",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies boolean inversion as root cause and aligns with ground truth keywords (boolean, inverted, toggle, negation). No specific false claims about file paths, function names, or other unverifiable details."
+  },
+  {
+    "query_id": "ACCQ-09",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general technical reasoning about deactivated user access issues without asserting unverifiable specifics. Recommendations align with root cause keywords (deactivated, revoked, active, access). No invented file paths, function names, or fabricated past incidents cited."
+  },
+  {
+    "query_id": "ACCQ-09",
+    "system": "baseline",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for deactivated user API access without inventing specific file paths, function names, or unverifiable claims. All suggested causes and steps align with the ground truth category of access control issues."
+  },
+  {
+    "query_id": "BUGQ-14",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies infinite loop bug in retry.py with counter not incrementing. Specific claims about root cause and fix align with ground truth keywords (infinite loop, retry, counter, increment). No contradictions detected."
+  },
+  {
+    "query_id": "BUGQ-14",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies infinite retry loop as root cause and recommends standard solutions (retry limits, exponential backoff, timeouts, circuit breaker). All claims are general best practices consistent with ground truth keywords. No specific fabricated details."
+  },
+  {
+    "query_id": "ACCQ-03",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies password reset email delivery as the issue category matching ground truth 'access' keywords. No specific technical claims (file paths, function names, etc.) are made that contradict the ground truth. General troubleshooting advice is appropriate."
+  },
+  {
+    "query_id": "ACCQ-03",
+    "system": "baseline",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for password reset email failures without inventing specific file paths, function names, or unverifiable claims. All suggestions (checking email service logs, DNS records, application logs, testing flow, validating emails, checking rate limits) are "
+  },
+  {
+    "query_id": "CFGQ-11",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies timezone misconfiguration as root cause, matching ground truth keywords (timezone, offset, configuration, environment). No specific technical claims contradict the verified answer. General troubleshooting advice is appropriate and not contradicted."
+  },
+  {
+    "query_id": "CFGQ-11",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies timezone configuration as root cause and recommends checking server timezone, environment variables, config files, and database timezone. All specific claims align with ground truth keywords (timezone, offset, configuration, time, environment). No fabricated details or "
+  },
+  {
+    "query_id": "ACCQ-02",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 77' as a previously resolved similar case, but no evidence supports this specific ticket reference. This is an unverifiable specific claim not in the provided evidence."
+  },
+  {
+    "query_id": "ACCQ-02",
+    "system": "baseline",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies account activation/inactive status as root cause, aligns with ground truth keywords (account, inactive, activation, onboarding, access), and provides appropriate troubleshooting steps without inventing specific file paths, function names, or unverifiable claims."
+  },
+  {
+    "query_id": "ACCQ-08",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response makes no specific technical claims that contradict ground truth. It appropriately acknowledges uncertainty, requests diagnostic information, and mentions relevant concepts (group permissions, inheritance logic) that align with root cause keywords. No fabricated details detected."
+  },
+  {
+    "query_id": "ACCQ-08",
+    "system": "baseline",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance aligned with ground truth keywords (group, permission, inheritance, access). No specific technical claims (file paths, function names, commit hashes) are made that contradict the verified information."
+  },
+  {
+    "query_id": "CFGQ-13",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response claims root cause is inverted boolean in is_feature_enabled() function in support_demo/validators.py, but ground truth indicates root cause involves allowed_hosts/base_url configuration issues, not a feature flag function."
+  },
+  {
+    "query_id": "CFGQ-13",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance aligned with ground truth (allowed_hosts, base_url, domain, configuration, host). No specific unverifiable claims like invented file paths, function names, or ticket references. Reasoning is sound and consistent with the identified root cause keywor"
+  },
+  {
+    "query_id": "CFGQ-01",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies missing SECRET_KEY environment variable as root cause, matching ground truth keywords (secret key, environment variable, missing, startup, configuration). No specific unverifiable claims made."
+  },
+  {
+    "query_id": "CFGQ-01",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for missing secret key issues that aligns with ground truth keywords (secret key, environment variable, missing, startup, configuration). No specific unverifiable claims like file paths, function names, or fabricated details are present."
+  },
+  {
+    "query_id": "BUGQ-11",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past ticket 14' as a reference for idempotency approach, but no evidence provided and ground truth does not mention this ticket. This is an unverifiable specific claim."
+  },
+  {
+    "query_id": "BUGQ-11",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies idempotency and retry logic as root cause of duplicate emails. Technical recommendations (message ID tracking, deduplication cache, exponential backoff) are sound distributed systems patterns. No specific false claims about file paths, function names, or non-existent fe"
+  },
+  {
+    "query_id": "CFGQ-04",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies CORS configuration as root cause and aligns with ground truth keywords (cors, origin, cross-origin, allowed, configuration). No specific false claims about file paths, functions, or non-existent tickets detected."
+  },
+  {
+    "query_id": "CFGQ-04",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies CORS as root cause and provides accurate technical guidance on CORS headers and implementation. All specific claims (CORS headers, preflight requests, browser blocking behavior) are consistent with ground truth and standard web security practices."
+  },
+  {
+    "query_id": "ACCQ-04",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies whitespace in API keys and access/authorization issues as root causes, matching ground truth keywords. No specific unverifiable claims (file paths, function names, etc.) are made."
+  },
+  {
+    "query_id": "ACCQ-04",
+    "system": "baseline",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general diagnostic guidance for API key rejection issues. All specific claims (checking dashboard status, verifying header format, eliminating whitespace, checking permissions, waiting for propagation, generating test keys) are standard troubleshooting practices consistent with gro"
+  },
+  {
+    "query_id": "CFGQ-08",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response claims a specific bug in retry_operation() function with missing 'attempts += 1' increment. Ground truth indicates root cause is SMTP/mail configuration issue only (maps_to_bug: null), not a code bug in retry logic. The invented bug details are unsupported hallucinations."
+  },
+  {
+    "query_id": "CFGQ-08",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies network connectivity and configuration as root causes, matching ground truth keywords (smtp, mail, host, unreachable, configuration). No specific false claims about file paths, functions, or non-existent resources detected."
+  },
+  {
+    "query_id": "BUGQ-09",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies the file path (support_demo/views/contact.py), the root cause (url_for endpoint mismatch causing 404 redirect), and recommends appropriate troubleshooting steps. All specific technical claims align with ground truth keywords and bug category."
+  },
+  {
+    "query_id": "BUGQ-09",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance consistent with ground truth (redirect/404 issue in contact form). No specific false claims about file paths, function names, or non-existent details. Reasoning aligns with root cause keywords."
+  },
+  {
+    "query_id": "BUGQ-16",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past ticket 1' as a reference for similar issue resolution, but no evidence supports this ticket's existence. This is a specific, unverifiable claim not in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "BUGQ-16",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response provides general, sound technical advice about input validation and error handling without making specific claims about file paths, function names, or other unverifiable details. The general reasoning aligns with root cause keywords (validation, password handling). No contradictions with gr"
+  },
+  {
+    "query_id": "CFGQ-12",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past ticket 48' as having an identical issue, but no evidence supports this ticket exists. This is a specific, unverifiable claim not in the provided evidence."
+  },
+  {
+    "query_id": "CFGQ-12",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general diagnostic guidance for file size limit issues without making specific unverifiable claims. All suggestions (check config, review validation code, test boundaries, check deployments) are reasonable and consistent with the ground truth category of 'config' and root cause key"
+  },
+  {
+    "query_id": "BUGQ-02",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past ticket 2' as a similar resolved issue, but no evidence supports this ticket's existence. This is a specific, unverifiable claim not in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "BUGQ-02",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies floor vs ceiling division as root cause and recommends Math.ceil fix, consistent with ground truth keywords. No specific false claims about file paths, function names, or non-existent details."
+  },
+  {
+    "query_id": "CFGQ-10",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites specific past tickets (69 and 54) as resolved cases with identical root cause, but no evidence supports these ticket references exist or match this issue."
+  },
+  {
+    "query_id": "CFGQ-10",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies cache TTL/configuration as root cause with zero value disabling caching. All technical claims align with ground truth keywords (cache, ttl, disabled, configuration, zero). No specific fabricated details like file paths or function names are asserted."
+  },
+  {
+    "query_id": "CFGQ-02",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response claims a specific bug in 'retry_operation function' in 'support_demo/retry.py' with details about attempt counter not incrementing. Ground truth indicates root cause is configuration-related (host/port/database settings), not a retry logic bug. This specific bug claim is unsupported and con"
+  },
+  {
+    "query_id": "CFGQ-02",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for database connection issues that aligns with ground truth (config category, connection/port/host/configuration keywords). No specific unverifiable claims like invented commands, file paths, or bug references are made."
+  },
+  {
+    "query_id": "BUGQ-01",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies the file path (support_demo/auth/views.py), the root cause (empty password validation before check_password_hash), and the function involved (login). All specific technical claims align with ground truth keywords. The recommended fix is sound and consistent with the iss"
+  },
+  {
+    "query_id": "BUGQ-01",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies empty password validation as root cause and recommends appropriate client/server-side fixes. No specific technical claims contradict ground truth keywords (empty password, validation, login)."
+  },
+  {
+    "query_id": "BUGQ-12",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies float precision as root cause, recommends Decimal type and rounding, and references correct file path. All specific technical claims align with ground truth keywords and bug category."
+  },
+  {
+    "query_id": "BUGQ-12",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies floating-point arithmetic as root cause of invoice rounding discrepancies and recommends decimal/fixed-point types and integer storage solutions. All specific technical claims align with ground truth keywords (float, rounding, invoice, decimal, precision). No fabricated"
+  },
+  {
+    "query_id": "CFGQ-14",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies worker/thread pool configuration with zero values as root cause, matching ground truth keywords. No specific unverifiable claims (file paths, ticket numbers, etc.) are made that contradict the evidence or ground truth."
+  },
+  {
+    "query_id": "CFGQ-14",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies worker/thread pool configuration as root cause with zero workers preventing async execution. All specific technical claims align with ground truth keywords (worker, thread, configuration, zero, async). No fabricated details or unsupported specifics detected."
+  },
+  {
+    "query_id": "BUGQ-08",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response cites 'past ticket 9' as evidence for a similar fix, but no such ticket exists in the provided evidence. This is a specific, unverifiable claim presented as fact."
+  },
+  {
+    "query_id": "BUGQ-08",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies memory leak in cache subsystem with unbounded growth and recommends LRU eviction policy. All specific technical claims align with ground truth keywords and expected bug category."
+  },
+  {
+    "query_id": "BUGQ-04",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 6' as a past similar issue, but no evidence supports this ticket exists. This is a specific, unverifiable claim not in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "BUGQ-04",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies division by zero in average rating calculation as root cause. Recommended fix (validation before calculation) aligns with ground truth. No specific false claims about file paths, function names, or non-existent details."
+  },
+  {
+    "query_id": "CFGQ-06",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies logging verbosity as root cause and recommends configuration changes. All specific claims (DEBUG level, .env files, INFO/WARNING levels) are reasonable technical guidance consistent with ground truth keywords (log level, verbose, logging, disk, configuration). No invent"
+  },
+  {
+    "query_id": "CFGQ-06",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies logging configuration as root cause with appropriate keywords (log level, verbose, logging, disk, configuration). No specific unverifiable claims made; general troubleshooting advice is sound and consistent with ground truth."
+  },
+  {
+    "query_id": "CFGQ-03",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response cites 'past ticket 43' as evidence for an identical resolved issue, but EVIDENCE is 'none' and no such ticket exists in provided data. This is a fabricated specific reference."
+  },
+  {
+    "query_id": "CFGQ-03",
+    "system": "baseline",
+    "replication": 2,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for static file serving issues in production, which aligns with ground truth keywords (static files, path, production, configuration, 404). No specific unverifiable claims like file paths, function names, or fabricated references are made."
+  },
+  {
+    "query_id": "ACCQ-07",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response invents specific technical details (build_redirect() function in security.py, 302 redirect) not supported by evidence or ground truth. Ground truth provides only root cause keywords without confirming these specific implementation details exist."
+  },
+  {
+    "query_id": "ACCQ-07",
+    "system": "baseline",
+    "replication": 2,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general SSO troubleshooting guidance consistent with ground truth keywords (sso, authentication, loop, access). No specific technical claims (file paths, function names, etc.) are made that contradict the verified information."
+  },
+  {
+    "query_id": "BUGQ-07",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.92,
+    "judge_reason": "Response correctly identifies Content-Type header and mimetype parameter as the fix. Technical claims align with ground truth keywords (content-type, json, header, mimetype, response). No specific false claims detected."
+  },
+  {
+    "query_id": "BUGQ-07",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies Content-Type header issues as root cause, matching ground truth keywords (content-type, json, header, response). No specific false claims about file paths, function names, or non-existent resources detected."
+  },
+  {
+    "query_id": "BUGQ-10",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response claims 'increment_view_counter function' exists and cites a 'previous ticket' resolving identical issue, but no evidence supports these specific claims. Ground truth only confirms race condition/atomic counter bug exists."
+  },
+  {
+    "query_id": "BUGQ-10",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies race condition in counter increment logic and provides appropriate solutions (atomic operations, thread-safe mechanisms, event queues). All specific technical claims align with ground truth root cause keywords and bug category."
+  },
+  {
+    "query_id": "BUGQ-06",
+    "system": "multi_agent",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies IndexError from accessing empty list in reports.py without guards. Specific claims (function name, file path, root cause) align with ground truth. Recommendations are sound and consistent with expected bug fix patterns."
+  },
+  {
+    "query_id": "BUGQ-06",
+    "system": "baseline",
+    "replication": 2,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general, correct technical reasoning about handling empty datasets in report builders. No specific unverifiable claims (file paths, function names, etc.) are made. The diagnosis aligns with ground truth keywords (empty list, report, guard). Recommendations are sound practices."
+  },
+  {
+    "query_id": "CFGQ-09",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response invents specific file path 'support_demo/validators.py' and function name 'is_feature_enabled()' not supported by evidence. References 'past ticket 52' without evidence. Ground truth shows file_path is empty, indicating specifics should not be asserted."
+  },
+  {
+    "query_id": "CFGQ-09",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies rate limit configuration as root cause, matches ground truth keywords (rate limit, threshold, configuration, requests, blocked). No specific false claims about file paths, functions, or commits. General troubleshooting advice is sound and appropriately cautious about sp"
+  },
+  {
+    "query_id": "CFGQ-08",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response invents a specific bug in retry.py with an 'attempts counter not incremented' issue. Ground truth shows root_cause is config-related (smtp/mail/host), maps_to_bug is null, indicating no actual code bug exists. The retry.py bug claim is unsupported fabrication."
+  },
+  {
+    "query_id": "CFGQ-08",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies SMTP/mail host unreachability as a configuration issue. All diagnostic steps (nslookup, dig, telnet) and common causes (DNS, firewall, hostname verification) are standard, verifiable troubleshooting approaches consistent with ground truth keywords. No invented specifics"
+  },
+  {
+    "query_id": "ACCQ-08",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'previously resolved issue (ticket 83)' as a similar past case, but EVIDENCE is 'none' and GROUND_TRUTH shows 'maps_to_bug: null', indicating no actual related ticket exists. This is a fabricated reference."
+  },
+  {
+    "query_id": "ACCQ-08",
+    "system": "baseline",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general diagnostic guidance for group permission inheritance issues without asserting specific unverifiable technical claims. All suggestions (checking logs, querying permissions, clearing cache, reviewing code) are standard troubleshooting practices consistent with the ground trut"
+  },
+  {
+    "query_id": "CFGQ-12",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 48' as a resolved similar case, but no evidence supports this ticket's existence. This is a specific, unverifiable claim presented as fact."
+  },
+  {
+    "query_id": "CFGQ-12",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general diagnostic guidance for file size limit issues without inventing specific file paths, function names, or technical details. All suggestions align with ground truth keywords (upload size, max, limit, configuration, reject). No unverifiable specifics are asserted."
+  },
+  {
+    "query_id": "BUGQ-02",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies floor division as root cause and recommends ceiling division formula. Technical explanation aligns with ground truth keywords (floor division, ceiling, page count, off-by-one). No specific unverifiable claims detected."
+  },
+  {
+    "query_id": "BUGQ-02",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies pagination bug with floor/ceiling division issue. Technical explanation matches ground truth root cause (floor division vs ceiling). Recommended fix using Math.ceil is appropriate. No specific false claims detected."
+  },
+  {
+    "query_id": "CFGQ-05",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies DEBUG flag in production as root cause and recommends setting DEBUG=False. All specific technical claims align with ground truth keywords (debug, production, configuration, stack trace). No fabricated details detected."
+  },
+  {
+    "query_id": "CFGQ-05",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies debug mode/production configuration as root cause and recommends disabling debug, implementing error handlers, and verifying in production. All specific claims align with ground truth keywords (debug, production, configuration, disabled, stack trace). No fabricated deta"
+  },
+  {
+    "query_id": "CFGQ-06",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies logging verbosity as root cause and recommends checking configuration files. All specific claims (DEBUG level, .env files, INFO/WARNING levels) are standard technical practices consistent with ground truth keywords (log level, verbose, logging, disk, configuration). No "
+  },
+  {
+    "query_id": "CFGQ-06",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies logging verbosity as root cause and recommends checking logging configuration files. All specific technical claims (log4j.properties, logback.xml, application.properties, DEBUG/TRACE levels, INFO/WARN levels, log rotation) are standard, well-established practices consis"
+  },
+  {
+    "query_id": "BUGQ-09",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies file path (support_demo/views/contact.py), mentions url_for() and endpoint issues, and discusses redirect problems. All specific technical claims align with ground truth keywords (redirect, url_for, endpoint, contact). No contradictions detected."
+  },
+  {
+    "query_id": "BUGQ-09",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies 404 redirect issue as root cause. Diagnostic steps (verify thank-you page exists, check redirect URL match, review recent changes) align with ground truth keywords (redirect, 404, endpoint). No specific false claims detected."
+  },
+  {
+    "query_id": "CFGQ-07",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past tickets (49 and 67)' as evidence for similar cases, but no evidence was provided to verify these ticket numbers exist. This is a specific, unverifiable claim not supported by available data."
+  },
+  {
+    "query_id": "CFGQ-07",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies session timeout configuration as root cause, matching ground truth keywords (session, timeout, configuration, short). No specific unverifiable claims made; general troubleshooting advice is sound and consistent with expected category."
+  },
+  {
+    "query_id": "BUGQ-01",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past ticket 1' as evidence for a similar resolved issue, but no such ticket exists in the provided evidence (which is empty). This is a fabricated reference used to support the recommendation."
+  },
+  {
+    "query_id": "BUGQ-01",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies empty password validation as root cause and recommends appropriate fixes (client-side required attribute, server-side validation, error handling). Claims are general technical guidance consistent with ground truth keywords (empty password, validation, login). No specifi"
+  },
+  {
+    "query_id": "ACCQ-04",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies whitespace in API keys and validation issues as root causes, matching ground truth keywords. No specific unverifiable claims (file paths, function names, etc.) are made. General troubleshooting advice is sound and consistent with the access/authorization category."
+  },
+  {
+    "query_id": "ACCQ-04",
+    "system": "baseline",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for API key authorization issues. All specific claims (key expiration, header format, whitespace issues, permissions, propagation delay, error logs) are standard API troubleshooting practices consistent with ground truth keywords (api key, unauthori"
+  },
+  {
+    "query_id": "ACCQ-06",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response invents specific technical details (is_feature_enabled() function, validators.py file, 'not' operator removal) not supported by evidence or ground truth. Ground truth provides only root cause keywords without confirming these specific implementation details."
+  },
+  {
+    "query_id": "ACCQ-06",
+    "system": "baseline",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general technical guidance on account lockout policies without asserting specific unverifiable claims. Recommendations align with ground truth keywords (lockout, login attempts, threshold, account, access). No fabricated file paths, function names, or specific system details are cl"
+  },
+  {
+    "query_id": "CFGQ-01",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies missing secret key environment variable as root cause and recommends setting it in production. All specific claims align with ground truth keywords (secret key, environment variable, missing, startup, configuration). No invented details or unsupported specifics detected"
+  },
+  {
+    "query_id": "CFGQ-01",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies the issue as a configuration problem related to missing secret keys at startup. All specific technical claims (secret management systems, permission checks, case-sensitivity, log review) are standard troubleshooting practices consistent with ground truth keywords. No in"
+  },
+  {
+    "query_id": "ACCQ-07",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response invents specific technical details (build_redirect() function in security.py, target_url parameter validation) not supported by evidence or ground truth. Ground truth provides only root cause keywords without confirming these specific implementation details."
+  },
+  {
+    "query_id": "ACCQ-07",
+    "system": "baseline",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general SSO troubleshooting guidance consistent with ground truth keywords (sso, authentication, loop, access). No specific unverifiable claims like file paths, function names, or fabricated references are made. Diagnostic steps are standard best practices."
+  },
+  {
+    "query_id": "CFGQ-03",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 43' as a similar past ticket with successful resolution, but no evidence was provided to verify this ticket exists or had the claimed resolution."
+  },
+  {
+    "query_id": "CFGQ-03",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general diagnostic guidance for 404 errors on static files in production, which aligns with ground truth keywords (static files, path, production, configuration, 404). No specific unverifiable claims like file paths, function names, or fabricated details are made."
+  },
+  {
+    "query_id": "CFGQ-13",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response invents specific function 'build_redirect()' in 'security.py' that is not supported by evidence or ground truth. Ground truth only confirms config/domain issue, not a specific code function causing the problem."
+  },
+  {
+    "query_id": "CFGQ-13",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response suggests using 'ndig' command for DNS testing, but the correct command is 'nslookup' or 'dig'. 'ndig' is not a standard DNS diagnostic tool."
+  },
+  {
+    "query_id": "BUGQ-04",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 6' as a past case where this fix was applied, but no evidence supports this ticket's existence. This is a specific, unverifiable claim not in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "BUGQ-04",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies division-by-zero error in rating average calculation and recommends guard clause checks. Technical reasoning aligns with ground truth root cause keywords (division by zero, average, rating, guard). No specific unverifiable claims made."
+  },
+  {
+    "query_id": "BUGQ-10",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 8' as a past similar case, but no evidence supports this specific ticket reference. This is an unverifiable specific claim not in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "BUGQ-10",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies race condition in concurrent counter increment as root cause, matching ground truth keywords. All technical solutions (atomic DB ops, thread-safe primitives, Redis INCR) are standard, verifiable approaches. No invented specifics or false claims detected."
+  },
+  {
+    "query_id": "BUGQ-07",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.92,
+    "judge_reason": "Response correctly identifies Content-Type header and mimetype parameter as the root cause. Technical claims align with ground truth keywords (content-type, json, header, mimetype, response). No specific false claims detected."
+  },
+  {
+    "query_id": "BUGQ-07",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies Content-Type header issues as root cause, matching ground truth keywords (content-type, json, header, response). No specific false claims about file paths, function names, or non-existent resources. General troubleshooting advice is sound."
+  },
+  {
+    "query_id": "BUGQ-14",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies infinite loop in retry logic caused by missing counter increment. Specific claims about retry_operation() function, attempt counter, and max_retries align with ground truth keywords (infinite loop, retry, counter, increment). File path retry.py matches expected file_pat"
+  },
+  {
+    "query_id": "BUGQ-14",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general, correct technical guidance on retry mechanisms without asserting unverifiable specifics. Recommendations align with root cause (infinite loop in retry logic) and don't contradict ground truth. No fabricated file paths, function names, or specific claims unsupported by evid"
+  },
+  {
+    "query_id": "ACCQ-03",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies password reset email delivery as the issue. While it proposes SMTP unreachability as a specific cause without evidence support, this is reasonable troubleshooting guidance rather than a false factual claim. No invented file paths, functions, or past tickets are cited."
+  },
+  {
+    "query_id": "ACCQ-03",
+    "system": "baseline",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for password reset email failures without inventing specific file paths, function names, or unverifiable claims. All recommendations (checking email service status, DNS records, logs, testing) are standard practices consistent with the ground truth "
+  },
+  {
+    "query_id": "CFGQ-02",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response claims bug in retry_operation function in retry.py with missing counter increment. Ground truth indicates root cause is configuration-related (database host/port), not a code bug in retry logic."
+  },
+  {
+    "query_id": "CFGQ-02",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general diagnostic guidance for connection refused errors with standard tools (netstat, ss, telnet) and configuration checks. All claims are consistent with ground truth identifying root cause as configuration issue involving database host/port settings. No specific unverifiable cl"
+  },
+  {
+    "query_id": "CFGQ-04",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies CORS as root cause and aligns with ground truth keywords (cors, origin, cross-origin, allowed, configuration). No specific technical claims contradict the verified answer. General guidance is appropriate given no evidence was available."
+  },
+  {
+    "query_id": "CFGQ-04",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies CORS as root cause and mentions proper headers (Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers) and preflight OPTIONS handling. All claims align with ground truth keywords and standard CORS configuration practices. No specific fa"
+  },
+  {
+    "query_id": "BUGQ-12",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response references 'past ticket 16' as a precedent for resolving a similar issue, but no evidence supports this ticket's existence. This is a specific, unverifiable claim not grounded in provided data."
+  },
+  {
+    "query_id": "BUGQ-12",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies floating-point arithmetic as root cause of invoice rounding discrepancies and recommends appropriate solutions (Decimal types, integer cents). Claims align with ground truth keywords (float, rounding, invoice, decimal, precision) and bug category."
+  },
+  {
+    "query_id": "ACCQ-09",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general technical reasoning about deactivated account access issues without asserting unverifiable specifics like file paths, function names, or fabricated past incidents. Claims align with ground truth keywords (deactivated, revoked, session, access)."
+  },
+  {
+    "query_id": "ACCQ-09",
+    "system": "baseline",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general technical reasoning about deactivated accounts retaining API access, which aligns with ground truth keywords (deactivated, session, access). No specific unverifiable claims like file paths, function names, or fabricated references are made."
+  },
+  {
+    "query_id": "BUGQ-06",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies IndexError from accessing empty list in reports.py without validation. Specific claims (function name, file path, root cause, fix approach) align with ground truth keywords and bug category."
+  },
+  {
+    "query_id": "BUGQ-06",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies empty data handling as root cause and recommends defensive programming with guards. Aligns with ground truth keywords: empty list, report, guard, and index-related issues. No specific false claims detected."
+  },
+  {
+    "query_id": "BUGQ-05",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies date format issue in support_demo/export.py and recommends ISO 8601 format. All specific claims align with ground truth keywords (date format, iso, export, strftime context implied)."
+  },
+  {
+    "query_id": "BUGQ-05",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies date format/ISO 8601 issue as root cause, matching ground truth keywords. No specific false claims about file paths, function names, or non-existent details. General guidance is sound."
+  },
+  {
+    "query_id": "BUGQ-03",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 5' as a past similar issue, but no evidence supports this ticket exists. This is a specific, unverifiable claim not in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "BUGQ-03",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general encoding troubleshooting advice consistent with ground truth keywords (unicode, filename, ascii, utf-8, encoding, upload). No specific false claims about file paths, function names, or invented details. Advice aligns with BUG-04 root cause."
+  },
+  {
+    "query_id": "ACCQ-02",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 77' as a similar past issue, but no evidence supports this ticket's existence. This is a specific, unverifiable claim not found in the provided evidence or ground truth."
+  },
+  {
+    "query_id": "ACCQ-02",
+    "system": "baseline",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance aligned with ground truth (inactive accounts, activation, onboarding, access issues). No specific technical claims (file paths, function names, product versions) are made that contradict the verified root cause keywords."
+  },
+  {
+    "query_id": "CFGQ-14",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response invents specific bug details (inverted boolean logic in is_feature_enabled() function in support_demo/validators.py) not supported by evidence or ground truth. Ground truth indicates root cause involves worker/thread configuration, not a specific function bug."
+  },
+  {
+    "query_id": "CFGQ-14",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies worker/thread pool configuration as root cause and suggests checking for zero/disabled values. All specific technical claims (parameter names, restart steps, job queue systems) are standard industry practices consistent with ground truth keywords (worker, thread, config"
+  },
+  {
+    "query_id": "CFGQ-10",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past tickets 69 and 54' as similar resolved cases, but no evidence supports these ticket numbers exist. This is a specific, unverifiable claim not in the evidence or ground truth."
+  },
+  {
+    "query_id": "CFGQ-10",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies cache configuration as root cause with zero/invalid TTL values. All specific technical claims (cache_ttl, cache_lifetime parameters, positive integer values in seconds, restart requirement) are consistent with ground truth keywords and general caching principles. No fab"
+  },
+  {
+    "query_id": "ACCQ-10",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'ticket 24' as a similar previously resolved issue, but GROUND_TRUTH shows maps_to_bug is null, indicating no prior related ticket exists. This is a fabricated reference."
+  },
+  {
+    "query_id": "ACCQ-10",
+    "system": "baseline",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general technical guidance on multi-tenant data isolation issues without inventing specific file paths, function names, or fabricated details. All claims align with ground truth keywords (tenant, isolation, data, access). No contradictions detected."
+  },
+  {
+    "query_id": "BUGQ-13",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies the file (support_demo/validators.py), the root cause (inverted boolean logic with 'not' operator), and the symptom (feature flags behaving opposite to their setting). All specific claims align with ground truth keywords and expected bug category."
+  },
+  {
+    "query_id": "BUGQ-13",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies boolean logic inversion as root cause and aligns with ground truth keywords (boolean, inverted, toggle, negation). No specific false claims about file paths, function names, or other unverifiable details."
+  },
+  {
+    "query_id": "BUGQ-16",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies root cause (empty password, check_password_hash, validation, TypeError/NoneType) and file path (auth/views.py). All specific technical claims align with ground truth keywords and expected bug category."
+  },
+  {
+    "query_id": "BUGQ-16",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response provides general, correct technical reasoning about input validation and error handling in authentication systems. While it doesn't identify the specific root cause (empty password + check_password_hash NoneType issue in support_demo/auth/views.py), it doesn't make contradictory specific cl"
+  },
+  {
+    "query_id": "ACCQ-01",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance aligned with ground truth keywords (permission, role, forbidden, admin). No specific technical claims (file paths, function names, etc.) are made that contradict the verified correct answer."
+  },
+  {
+    "query_id": "ACCQ-01",
+    "system": "baseline",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "easy",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general troubleshooting guidance for authorization issues without making specific unverifiable claims. All recommendations (role verification, session refresh, log examination) are standard practices consistent with the ground truth's focus on permission/role/authorization problems"
+  },
+  {
+    "query_id": "BUGQ-15",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies open redirect and HTTP header injection vulnerabilities in build_redirect() function at the specified file path. All specific technical claims align with ground truth keywords and bug category."
+  },
+  {
+    "query_id": "BUGQ-15",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies open redirect vulnerability with appropriate root cause (unvalidated redirect input) and remediation steps. All technical claims align with ground truth keywords (open redirect, redirect, validation, location). No specific false claims detected."
+  },
+  {
+    "query_id": "ACCQ-05",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies missing authorization checks on write endpoints and recommends role-based permission validation. All specific technical claims align with ground truth keywords: read-only status, authorization, permissions, and write operations. No fabricated details detected."
+  },
+  {
+    "query_id": "ACCQ-05",
+    "system": "baseline",
+    "replication": 3,
+    "category": "access",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response provides general technical reasoning about privilege escalation and authorization issues without asserting unverifiable specifics. All claims align with ground truth keywords (read-only, authorization, privilege, permission, write). No invented file paths, function names, or specific system"
+  },
+  {
+    "query_id": "BUGQ-11",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": true,
+    "judge_confidence": 0.85,
+    "judge_reason": "Response cites 'past tickets (tickets 14 and 22)' as evidence for similar resolutions, but no evidence was provided to verify these tickets exist or contain relevant information. This is a specific, unverifiable claim not supported by available data."
+  },
+  {
+    "query_id": "BUGQ-11",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies idempotency and retry as root causes, matching ground truth keywords. No specific false claims (file paths, function names, etc.) are made that contradict the verified bug diagnosis."
+  },
+  {
+    "query_id": "CFGQ-11",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies timezone configuration as root cause, matching ground truth keywords (timezone, offset, configuration, environment). No specific false claims detected; general troubleshooting advice is appropriate given no evidence was available."
+  },
+  {
+    "query_id": "CFGQ-11",
+    "system": "baseline",
+    "replication": 3,
+    "category": "config",
+    "difficulty": "hard",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies timezone configuration as root cause and provides appropriate diagnostic steps (timedatectl, TZ variable, database timezone). All specific technical claims align with ground truth keywords and expected category. No invented details detected."
+  },
+  {
+    "query_id": "BUGQ-08",
+    "system": "multi_agent",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies memory leak in cache.py with unbounded dictionary and recommends LRU cache solution. All specific technical claims align with ground truth keywords (memory leak, cache, unbounded, lru, eviction)."
+  },
+  {
+    "query_id": "BUGQ-08",
+    "system": "baseline",
+    "replication": 3,
+    "category": "bug",
+    "difficulty": "medium",
+    "hallucination_detected": false,
+    "judge_confidence": 0.95,
+    "judge_reason": "Response correctly identifies memory leak in caching subsystem with unbounded cache as root cause. Recommends LRU eviction and TTL expiration, all consistent with ground truth keywords. No specific false claims about file paths, function names, or non-existent details."
+  }
+]

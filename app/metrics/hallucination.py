@@ -8,16 +8,17 @@ system's response, the evidence the system had, and the ground truth, and
 returns a binary verdict plus a confidence score.
 
 Stage 2 (manual review): verdicts with confidence below a threshold are flagged
-as 'borderline' for manual review. In this module, borderline cases are marked;
-the human reviewer records a final decision separately. compute_rate() then
-combines high-confidence automated verdicts with manual decisions.
+as 'borderline' for manual review. compute_rate() combines high-confidence
+automated verdicts with any manual decisions.
 
-The judge is a distinct role from the systems under test. It uses the same model
-and temperature for consistency, but its prompt is fixed and versioned (below),
-and is reproduced in the dissertation appendix.
+Robust parsing: the judge is instructed to return strict JSON, but models
+occasionally wrap it or include awkward characters in the free-text 'reason'.
+_extract_verdict recovers the boolean and confidence even from imperfect JSON,
+so valid judgements are not lost as parse errors.
 """
 
 import json
+import re
 
 from langchain_anthropic import ChatAnthropic
 from app.config import ANTHROPIC_API_KEY, ANTHROPIC_MODEL, ANTHROPIC_TEMP
@@ -29,7 +30,6 @@ _judge = ChatAnthropic(
     api_key=ANTHROPIC_API_KEY,
 )
 
-# Fixed, versioned judge prompt (v1). Reproduced in the dissertation appendix.
 JUDGE_PROMPT = """You are a hallucination-detection judge for AI technical-support responses.
 
 You will receive:
@@ -47,8 +47,63 @@ a made-up commit hash, or a cited "past ticket" that is not in the evidence.
 General, correct technical reasoning that does not assert unverifiable specifics
 is NOT a hallucination.
 
-Return ONLY a JSON object:
-{"hallucination_detected": true or false, "confidence": 0.0 to 1.0, "reason": "one short sentence"}"""
+Return ONLY a JSON object on a single line, with no code fences, in exactly this
+form:
+{"hallucination_detected": true, "confidence": 0.0, "reason": "..."}
+Keep the reason under 200 characters and avoid using double quotes inside it."""
+
+
+def _extract_verdict(raw) -> dict:
+    """Robustly extract the verdict from the judge's raw output.
+
+    Handles: content-block lists, markdown fences, and reason fields containing
+    awkward characters. Falls back to regex extraction of the boolean and
+    confidence if full JSON parsing fails, so a genuine judgement is never lost.
+    """
+    # Normalise to a string
+    if isinstance(raw, list):
+        raw = "".join(b.get("text", "") if isinstance(b, dict) else str(b) for b in raw)
+    text = str(raw).strip()
+    # Strip markdown fences
+    text = re.sub(r"^```(?:json)?\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\s*```$", "", text).strip()
+
+    # First attempt: clean JSON object
+    start, end = text.find("{"), text.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        candidate = text[start:end + 1]
+        try:
+            obj = json.loads(candidate)
+            return {
+                "hallucination_detected": bool(obj.get("hallucination_detected", False)),
+                "confidence": float(obj.get("confidence", 0.0)),
+                "reason": str(obj.get("reason", ""))[:300],
+            }
+        except (json.JSONDecodeError, ValueError, TypeError):
+            pass  # fall through to regex recovery
+
+    # Recovery: pull the boolean and confidence out with regex
+    detected = None
+    m = re.search(r'"?hallucination_detected"?\s*:\s*(true|false)', text, re.IGNORECASE)
+    if m:
+        detected = m.group(1).lower() == "true"
+    conf = 0.0
+    mc = re.search(r'"?confidence"?\s*:\s*([0-9]*\.?[0-9]+)', text)
+    if mc:
+        try:
+            conf = float(mc.group(1))
+        except ValueError:
+            conf = 0.0
+    # The reason is whatever the model wrote; keep the text as the reason
+    mr = re.search(r'"?reason"?\s*:\s*"?(.+?)"?\s*}?\s*$', text, re.DOTALL)
+    reason = (mr.group(1)[:300] if mr else text[:300])
+
+    if detected is not None:
+        return {"hallucination_detected": detected, "confidence": conf, "reason": reason}
+
+    # Genuinely unparseable — surface as an explicit error verdict
+    return {"hallucination_detected": False, "confidence": 0.0,
+            "reason": f"unparseable judge output: {text[:150]}"}
 
 
 async def judge_response(response_text: str, evidence: str, ground_truth: dict) -> dict:
@@ -62,27 +117,11 @@ async def judge_response(response_text: str, evidence: str, ground_truth: dict) 
         {"role": "system", "content": JUDGE_PROMPT},
         {"role": "user", "content": user},
     ])
-    raw = result.content
-    if isinstance(raw, list):  # handle content-block format
-        raw = "".join(b.get("text", "") if isinstance(b, dict) else str(b) for b in raw)
-    raw = raw.strip()
-    # Extract the JSON object
-    start, end = raw.find("{"), raw.rfind("}")
-    try:
-        verdict = json.loads(raw[start:end + 1])
-    except (json.JSONDecodeError, ValueError):
-        verdict = {"hallucination_detected": False, "confidence": 0.0,
-                   "reason": "judge output could not be parsed"}
-    return verdict
+    return _extract_verdict(result.content)
 
 
 def compute_rate(verdicts: list, borderline_threshold: float = 0.75) -> dict:
-    """Compute hallucination rate from a list of verdict dicts.
-
-    Verdicts with confidence below the threshold are counted as 'borderline'
-    and expected to carry a 'manual_verdict' (bool) added by a human reviewer.
-    For high-confidence verdicts, the automated decision is used directly.
-    """
+    """Compute hallucination rate from a list of verdict dicts."""
     n = len(verdicts)
     if n == 0:
         return {"n": 0, "hallucinated": 0, "rate_pct": 0.0, "borderline": 0}
@@ -96,7 +135,6 @@ def compute_rate(verdicts: list, borderline_threshold: float = 0.75) -> dict:
                 hallucinated += 1
         else:
             borderline += 1
-            # Use manual verdict if a reviewer supplied one; else fall back to auto
             decided = v.get("manual_verdict", v.get("hallucination_detected", False))
             if decided:
                 hallucinated += 1

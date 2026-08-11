@@ -1,0 +1,924 @@
+[
+  {
+    "query_id": "BUGQ-01",
+    "ticket_input": {
+      "ticket_id": "BUGQ-01",
+      "title": "Login throws an error when password field is blank",
+      "description": "If a user submits the sign-in form and leaves the password box empty, the server responds with an internal error instead of a clean validation message.",
+      "severity": "high"
+    },
+    "category": "bug",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/auth/views.py",
+      "root_cause_keywords": [
+        "empty password",
+        "check_password_hash",
+        "validation",
+        "nonetype",
+        "login"
+      ],
+      "maps_to_bug": "BUG-01"
+    }
+  },
+  {
+    "query_id": "BUGQ-02",
+    "ticket_input": {
+      "ticket_id": "BUGQ-02",
+      "title": "Listing shows one fewer page than it should",
+      "description": "On the results listing, when the number of records isn't an exact multiple of the page size, the last page of records is missing from the page navigation.",
+      "severity": "medium"
+    },
+    "category": "bug",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/pagination.py",
+      "root_cause_keywords": [
+        "off-by-one",
+        "pagination",
+        "floor division",
+        "page count",
+        "ceiling"
+      ],
+      "maps_to_bug": "BUG-02"
+    }
+  },
+  {
+    "query_id": "BUGQ-03",
+    "ticket_input": {
+      "ticket_id": "BUGQ-03",
+      "title": "Uploading files named with accents breaks",
+      "description": "Users report that files whose names include accented or non-English characters refuse to upload and produce an encoding-related crash.",
+      "severity": "high"
+    },
+    "category": "bug",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/uploads.py",
+      "root_cause_keywords": [
+        "unicode",
+        "filename",
+        "ascii",
+        "utf-8",
+        "encoding",
+        "upload"
+      ],
+      "maps_to_bug": "BUG-04"
+    }
+  },
+  {
+    "query_id": "BUGQ-04",
+    "ticket_input": {
+      "ticket_id": "BUGQ-04",
+      "title": "Product page errors out when there are no reviews yet",
+      "description": "Opening a brand-new product that has not received any ratings causes the page to crash while calculating the average score.",
+      "severity": "medium"
+    },
+    "category": "bug",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/models/product.py",
+      "root_cause_keywords": [
+        "division by zero",
+        "zerodivisionerror",
+        "average",
+        "rating",
+        "guard"
+      ],
+      "maps_to_bug": "BUG-05"
+    }
+  },
+  {
+    "query_id": "BUGQ-05",
+    "ticket_input": {
+      "ticket_id": "BUGQ-05",
+      "title": "Exported spreadsheet dates are in the wrong order of fields",
+      "description": "When exporting data, the date column comes out as month/day/year, but our downstream tools expect the year-first international format and reject the file.",
+      "severity": "low"
+    },
+    "category": "bug",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/export.py",
+      "root_cause_keywords": [
+        "date format",
+        "iso",
+        "csv",
+        "strftime",
+        "export"
+      ],
+      "maps_to_bug": "BUG-06"
+    }
+  },
+  {
+    "query_id": "BUGQ-06",
+    "ticket_input": {
+      "ticket_id": "BUGQ-06",
+      "title": "Report screen crashes when there is no data",
+      "description": "If a report is generated for a period that contains no records, the report builder throws an error instead of showing an empty report.",
+      "severity": "medium"
+    },
+    "category": "bug",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/reports.py",
+      "root_cause_keywords": [
+        "index out of range",
+        "indexerror",
+        "empty list",
+        "report",
+        "guard"
+      ],
+      "maps_to_bug": "BUG-13"
+    }
+  },
+  {
+    "query_id": "BUGQ-07",
+    "ticket_input": {
+      "ticket_id": "BUGQ-07",
+      "title": "API responses sometimes parsed as plain text by clients",
+      "description": "Some client applications fail to read our API output correctly, treating the returned data as text rather than structured data, which breaks their parsing.",
+      "severity": "medium"
+    },
+    "category": "bug",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/helpers.py",
+      "root_cause_keywords": [
+        "content-type",
+        "json",
+        "header",
+        "mimetype",
+        "response"
+      ],
+      "maps_to_bug": "BUG-03"
+    }
+  },
+  {
+    "query_id": "BUGQ-08",
+    "ticket_input": {
+      "ticket_id": "BUGQ-08",
+      "title": "Server memory keeps climbing over time",
+      "description": "On long-running instances, memory usage grows steadily until the process becomes unstable. It seems related to image preview handling that never releases old entries.",
+      "severity": "high"
+    },
+    "category": "bug",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/cache.py",
+      "root_cause_keywords": [
+        "memory leak",
+        "cache",
+        "eviction",
+        "unbounded",
+        "lru"
+      ],
+      "maps_to_bug": "BUG-07"
+    }
+  },
+  {
+    "query_id": "BUGQ-09",
+    "ticket_input": {
+      "ticket_id": "BUGQ-09",
+      "title": "Contact form sends users to a missing page",
+      "description": "After a visitor submits the contact form, instead of a thank-you page they land on a not-found error page.",
+      "severity": "medium"
+    },
+    "category": "bug",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/views/contact.py",
+      "root_cause_keywords": [
+        "redirect",
+        "url_for",
+        "endpoint",
+        "404",
+        "contact"
+      ],
+      "maps_to_bug": "BUG-08"
+    }
+  },
+  {
+    "query_id": "BUGQ-10",
+    "ticket_input": {
+      "ticket_id": "BUGQ-10",
+      "title": "View counts are lower than actual traffic",
+      "description": "Under busy periods, the recorded number of page views is noticeably lower than the real number of visits, as if some increments are being lost.",
+      "severity": "medium"
+    },
+    "category": "bug",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/models/stats.py",
+      "root_cause_keywords": [
+        "race condition",
+        "atomic",
+        "counter",
+        "concurrency",
+        "increment"
+      ],
+      "maps_to_bug": "BUG-09"
+    }
+  },
+  {
+    "query_id": "BUGQ-11",
+    "ticket_input": {
+      "ticket_id": "BUGQ-11",
+      "title": "Customers occasionally receive the same email twice",
+      "description": "When the mail system is slow, some recipients get duplicate copies of the same notification, apparently because the send is retried.",
+      "severity": "medium"
+    },
+    "category": "bug",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/mailer.py",
+      "root_cause_keywords": [
+        "duplicate",
+        "email",
+        "retry",
+        "idempotency",
+        "mailer"
+      ],
+      "maps_to_bug": "BUG-10"
+    }
+  },
+  {
+    "query_id": "BUGQ-12",
+    "ticket_input": {
+      "ticket_id": "BUGQ-12",
+      "title": "Invoice totals are sometimes a fraction of a penny off",
+      "description": "Finance reports that some invoice totals show tiny rounding discrepancies, for example a long trailing decimal instead of a clean amount.",
+      "severity": "high"
+    },
+    "category": "bug",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/billing.py",
+      "root_cause_keywords": [
+        "float",
+        "rounding",
+        "invoice",
+        "total",
+        "decimal",
+        "precision"
+      ],
+      "maps_to_bug": "BUG-11"
+    }
+  },
+  {
+    "query_id": "BUGQ-13",
+    "ticket_input": {
+      "ticket_id": "BUGQ-13",
+      "title": "Turning something on turns it off",
+      "description": "Our operations team says that when they switch a certain capability on in the settings, it behaves as if switched off, and vice versa. Very confusing.",
+      "severity": "medium"
+    },
+    "category": "bug",
+    "difficulty": "hard",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/validators.py",
+      "root_cause_keywords": [
+        "boolean",
+        "inverted",
+        "feature flag",
+        "toggle",
+        "negation"
+      ],
+      "maps_to_bug": "BUG-12"
+    }
+  },
+  {
+    "query_id": "BUGQ-14",
+    "ticket_input": {
+      "ticket_id": "BUGQ-14",
+      "title": "The system just hangs forever sometimes",
+      "description": "Occasionally an operation never finishes and the process appears frozen. It happens when an underlying step keeps failing and something keeps trying again endlessly.",
+      "severity": "critical"
+    },
+    "category": "bug",
+    "difficulty": "hard",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/retry.py",
+      "root_cause_keywords": [
+        "infinite loop",
+        "retry",
+        "counter",
+        "increment",
+        "backoff"
+      ],
+      "maps_to_bug": "BUG-14"
+    }
+  },
+  {
+    "query_id": "BUGQ-15",
+    "ticket_input": {
+      "ticket_id": "BUGQ-15",
+      "title": "Security team flagged a redirect concern",
+      "description": "Our security reviewers raised that a redirect feature might let an attacker send users to an outside site or tamper with response headers because the target isn't checked.",
+      "severity": "critical"
+    },
+    "category": "bug",
+    "difficulty": "hard",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/security.py",
+      "root_cause_keywords": [
+        "header injection",
+        "redirect",
+        "validation",
+        "open redirect",
+        "location"
+      ],
+      "maps_to_bug": "BUG-15"
+    }
+  },
+  {
+    "query_id": "BUGQ-16",
+    "ticket_input": {
+      "ticket_id": "BUGQ-16",
+      "title": "Sign-in intermittently errors for some submissions",
+      "description": "A portion of sign-in attempts fail with a server error rather than a friendly message; it appears to correlate with how the credentials were entered.",
+      "severity": "high"
+    },
+    "category": "bug",
+    "difficulty": "hard",
+    "ground_truth": {
+      "expected_category": "bug",
+      "file_path": "support_demo/auth/views.py",
+      "root_cause_keywords": [
+        "empty password",
+        "check_password_hash",
+        "validation",
+        "nonetype",
+        "login"
+      ],
+      "maps_to_bug": "BUG-01"
+    }
+  },
+  {
+    "query_id": "CFGQ-01",
+    "ticket_input": {
+      "ticket_id": "CFGQ-01",
+      "title": "App won't start, complains about a missing secret",
+      "description": "In the production environment the application refuses to boot, reporting that a required secret key value has not been provided.",
+      "severity": "critical"
+    },
+    "category": "config",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "secret key",
+        "environment variable",
+        "missing",
+        "startup",
+        "configuration"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-02",
+    "ticket_input": {
+      "ticket_id": "CFGQ-02",
+      "title": "Cannot connect to the database on the usual port",
+      "description": "The application reports a connection refused error when trying to reach the database, even though the database service itself appears to be running.",
+      "severity": "high"
+    },
+    "category": "config",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "database",
+        "connection",
+        "host",
+        "port",
+        "configuration"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-03",
+    "ticket_input": {
+      "ticket_id": "CFGQ-03",
+      "title": "Stylesheets and scripts missing in production",
+      "description": "The site loads unstyled in production because the CSS and JavaScript files return not-found, though everything is fine in development.",
+      "severity": "medium"
+    },
+    "category": "config",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "static files",
+        "path",
+        "production",
+        "configuration",
+        "404"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-04",
+    "ticket_input": {
+      "ticket_id": "CFGQ-04",
+      "title": "Frontend blocked from calling the API",
+      "description": "The browser prevents our web frontend from calling the backend API, citing a cross-origin restriction.",
+      "severity": "high"
+    },
+    "category": "config",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "cors",
+        "origin",
+        "cross-origin",
+        "allowed",
+        "configuration"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-05",
+    "ticket_input": {
+      "ticket_id": "CFGQ-05",
+      "title": "Stack traces visible to end users",
+      "description": "Users are seeing detailed error pages with stack traces in production, which is a security concern; debug output appears to be switched on.",
+      "severity": "high"
+    },
+    "category": "config",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "debug",
+        "production",
+        "configuration",
+        "disabled",
+        "stack trace"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-06",
+    "ticket_input": {
+      "ticket_id": "CFGQ-06",
+      "title": "Logs filling the disk very quickly",
+      "description": "The server disk keeps filling up with an enormous volume of log output, far more than expected, suggesting the logging verbosity is set too high.",
+      "severity": "medium"
+    },
+    "category": "config",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "log level",
+        "verbose",
+        "logging",
+        "disk",
+        "configuration"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-07",
+    "ticket_input": {
+      "ticket_id": "CFGQ-07",
+      "title": "Users logged out after a very short time",
+      "description": "People are being signed out almost immediately after logging in, as though the session lifetime is set far too low.",
+      "severity": "medium"
+    },
+    "category": "config",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "session",
+        "timeout",
+        "expiry",
+        "configuration",
+        "short"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-08",
+    "ticket_input": {
+      "ticket_id": "CFGQ-08",
+      "title": "Outgoing email not being sent",
+      "description": "No outbound emails are being delivered from one environment; the mail server host setting appears unreachable from within the container.",
+      "severity": "high"
+    },
+    "category": "config",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "smtp",
+        "mail",
+        "host",
+        "unreachable",
+        "configuration"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-09",
+    "ticket_input": {
+      "ticket_id": "CFGQ-09",
+      "title": "Requests rejected far too aggressively",
+      "description": "Legitimate users are hitting a limit and being blocked after only a handful of requests, as if the rate limit threshold is misconfigured very low.",
+      "severity": "medium"
+    },
+    "category": "config",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "rate limit",
+        "threshold",
+        "configuration",
+        "blocked",
+        "requests"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-10",
+    "ticket_input": {
+      "ticket_id": "CFGQ-10",
+      "title": "Caching seems to be doing nothing",
+      "description": "Performance is poor because caching does not appear to take effect; the cache lifetime may be set to zero, disabling it entirely.",
+      "severity": "medium"
+    },
+    "category": "config",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "cache",
+        "ttl",
+        "disabled",
+        "configuration",
+        "zero"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-11",
+    "ticket_input": {
+      "ticket_id": "CFGQ-11",
+      "title": "Everything is an hour off",
+      "description": "Timestamps across the application seem shifted by a fixed amount, which the team suspects is an environment time-zone setting rather than a code issue.",
+      "severity": "low"
+    },
+    "category": "config",
+    "difficulty": "hard",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "timezone",
+        "offset",
+        "configuration",
+        "time",
+        "environment"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-12",
+    "ticket_input": {
+      "ticket_id": "CFGQ-12",
+      "title": "Big valid files get rejected",
+      "description": "Uploads that should be allowed are being refused for being too large, even though they are within the intended limit, pointing at a size setting.",
+      "severity": "medium"
+    },
+    "category": "config",
+    "difficulty": "hard",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "upload size",
+        "max",
+        "limit",
+        "configuration",
+        "reject"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-13",
+    "ticket_input": {
+      "ticket_id": "CFGQ-13",
+      "title": "New deployment can't be reached at its address",
+      "description": "After deploying, the service is unreachable at the expected domain; the allowed-hosts or base-URL configuration may be pointing at the wrong place.",
+      "severity": "high"
+    },
+    "category": "config",
+    "difficulty": "hard",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "allowed hosts",
+        "base url",
+        "domain",
+        "configuration",
+        "host"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "CFGQ-14",
+    "ticket_input": {
+      "ticket_id": "CFGQ-14",
+      "title": "Background jobs never run",
+      "description": "Scheduled or asynchronous jobs are not executing at all; it looks like the worker or thread configuration might be set to zero.",
+      "severity": "high"
+    },
+    "category": "config",
+    "difficulty": "hard",
+    "ground_truth": {
+      "expected_category": "config",
+      "file_path": "",
+      "root_cause_keywords": [
+        "worker",
+        "thread",
+        "configuration",
+        "zero",
+        "async"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "ACCQ-01",
+    "ticket_input": {
+      "ticket_id": "ACCQ-01",
+      "title": "Admin can't open the admin dashboard",
+      "description": "A user who has been given the administrator role still receives a forbidden error when trying to open the admin dashboard.",
+      "severity": "high"
+    },
+    "category": "access",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "access",
+      "file_path": "",
+      "root_cause_keywords": [
+        "permission",
+        "role",
+        "forbidden",
+        "admin",
+        "authorization"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "ACCQ-02",
+    "ticket_input": {
+      "ticket_id": "ACCQ-02",
+      "title": "New starters can't log in on day one",
+      "description": "Newly created employee accounts cannot sign in, receiving an account-not-active message, even though the accounts clearly exist.",
+      "severity": "high"
+    },
+    "category": "access",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "access",
+      "file_path": "",
+      "root_cause_keywords": [
+        "account",
+        "inactive",
+        "activation",
+        "onboarding",
+        "access"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "ACCQ-03",
+    "ticket_input": {
+      "ticket_id": "ACCQ-03",
+      "title": "Password reset emails never arrive",
+      "description": "People requesting a password reset never receive the email, so they remain locked out of their accounts.",
+      "severity": "high"
+    },
+    "category": "access",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "access",
+      "file_path": "",
+      "root_cause_keywords": [
+        "password reset",
+        "email",
+        "delivery",
+        "locked out",
+        "access"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "ACCQ-04",
+    "ticket_input": {
+      "ticket_id": "ACCQ-04",
+      "title": "Valid API key keeps getting rejected",
+      "description": "A client reports their API key, which should be valid, is being refused with an unauthorized response on every request.",
+      "severity": "medium"
+    },
+    "category": "access",
+    "difficulty": "easy",
+    "ground_truth": {
+      "expected_category": "access",
+      "file_path": "",
+      "root_cause_keywords": [
+        "api key",
+        "unauthorized",
+        "whitespace",
+        "validation",
+        "access"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "ACCQ-05",
+    "ticket_input": {
+      "ticket_id": "ACCQ-05",
+      "title": "Read-only account can change data",
+      "description": "An account meant to be read-only is able to edit and delete records, which is a privilege escalation concern.",
+      "severity": "critical"
+    },
+    "category": "access",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "access",
+      "file_path": "",
+      "root_cause_keywords": [
+        "read-only",
+        "authorization",
+        "privilege",
+        "permission",
+        "write"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "ACCQ-06",
+    "ticket_input": {
+      "ticket_id": "ACCQ-06",
+      "title": "Locked out after a few wrong tries",
+      "description": "Users are being locked out of their accounts after only a couple of failed login attempts, which seems too strict.",
+      "severity": "medium"
+    },
+    "category": "access",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "access",
+      "file_path": "",
+      "root_cause_keywords": [
+        "lockout",
+        "login attempts",
+        "threshold",
+        "account",
+        "access"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "ACCQ-07",
+    "ticket_input": {
+      "ticket_id": "ACCQ-07",
+      "title": "Single sign-on loops back to login",
+      "description": "When using single sign-on, users are bounced back to the login screen in a loop instead of being signed in.",
+      "severity": "high"
+    },
+    "category": "access",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "access",
+      "file_path": "",
+      "root_cause_keywords": [
+        "sso",
+        "single sign-on",
+        "loop",
+        "authentication",
+        "access"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "ACCQ-08",
+    "ticket_input": {
+      "ticket_id": "ACCQ-08",
+      "title": "Group members don't inherit group permissions",
+      "description": "Users added to a permission group do not receive the group's access rights, so they still can't reach resources they should.",
+      "severity": "medium"
+    },
+    "category": "access",
+    "difficulty": "medium",
+    "ground_truth": {
+      "expected_category": "access",
+      "file_path": "",
+      "root_cause_keywords": [
+        "group",
+        "permission",
+        "inheritance",
+        "role",
+        "access"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "ACCQ-09",
+    "ticket_input": {
+      "ticket_id": "ACCQ-09",
+      "title": "Removed user can still do things",
+      "description": "An account that was deactivated appears to still be able to call the API, as though the revocation didn't fully take effect.",
+      "severity": "critical"
+    },
+    "category": "access",
+    "difficulty": "hard",
+    "ground_truth": {
+      "expected_category": "access",
+      "file_path": "",
+      "root_cause_keywords": [
+        "deactivated",
+        "revoked",
+        "session",
+        "active",
+        "access"
+      ],
+      "maps_to_bug": null
+    }
+  },
+  {
+    "query_id": "ACCQ-10",
+    "ticket_input": {
+      "ticket_id": "ACCQ-10",
+      "title": "People see data that isn't theirs",
+      "description": "After signing in, some users briefly see information belonging to a different tenant or account, a serious isolation concern.",
+      "severity": "critical"
+    },
+    "category": "access",
+    "difficulty": "hard",
+    "ground_truth": {
+      "expected_category": "access",
+      "file_path": "",
+      "root_cause_keywords": [
+        "tenant",
+        "isolation",
+        "data",
+        "access",
+        "authorization"
+      ],
+      "maps_to_bug": null
+    }
+  }
+]
